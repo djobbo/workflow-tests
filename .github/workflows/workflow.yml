@@ -9,3 +9,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Echo
         run: echo ${{ github.repository_owner }}
+  not-repo-owner:
+    runs-on: ubuntu-latest
+    if: ${{ github.repository_owner }} != 'djobbo'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Echo
+        run: echo "not me lol"
